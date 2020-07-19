@@ -103,7 +103,7 @@ func IsMarketClosed(t time.Time) bool {
     }
   }
   if t.Weekday().String() == "Sunday" {
-    if hour > 0 && hour < 21 {
+    if hour > 0 && hour < 22 {
       return true
     }
   }
