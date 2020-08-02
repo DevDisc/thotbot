@@ -79,7 +79,7 @@ func handleFutures(s *discordgo.Session, m *discordgo.MessageCreate) {
   }
 
   // If the message is ping, replt with pong
-  if m.Content == "!futures" {
+  if m.Content == "!futures" || m.Content == "!market" {
     timeStamp, _ := m.Timestamp.Parse()
     if IsMarketClosed(timeStamp) {
       s.ChannelMessageSend(m.ChannelID, "Futures are closed Wompie")
