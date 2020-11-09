@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -91,6 +92,7 @@ func IsMarketClosed(t time.Time) bool {
 	hour, _, _ := t.Clock()
 	// Is it between 4 and 5 CT?
 	if hour > 20 && hour < 21 {
+		fmt.Println(hour)
 		return true
 	}
 	// Is it between Friday after 4 and Sunday before 5 CT
