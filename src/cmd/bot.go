@@ -92,7 +92,7 @@ func IsMarketClosed(t time.Time) bool {
 	hour, _, _ := t.Clock()
 	// Is it between 4 and 5 CT?
 	fmt.Println(hour)
-	if hour > 20 && hour < 21 {
+	if hour >= 22 && hour < 23 {
 		return true
 	}
 	// Is it between Friday after 4 and Sunday before 5 CT
@@ -100,12 +100,12 @@ func IsMarketClosed(t time.Time) bool {
 		return true
 	}
 	if t.Weekday().String() == "Friday" {
-		if hour > 21 {
+		if hour >= 22 {
 			return true
 		}
 	}
 	if t.Weekday().String() == "Sunday" {
-		if hour > 0 && hour < 22 {
+		if hour > 0 && hour <= 23 {
 			return true
 		}
 	}
