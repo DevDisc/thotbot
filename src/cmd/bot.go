@@ -83,8 +83,8 @@ func handleFutures(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Content == "!futures" || m.Content == "!market" {
 		timeStamp, _ := m.Timestamp.Parse()
 		if IsMarketClosed(timeStamp) {
-			msg := "Futures are closed "
-			msg += m.Author.ID
+			msg := "Futures are closed @"
+			msg += m.Author.Username
 			s.ChannelMessageSend(m.ChannelID, msg)
 		}
 	}
