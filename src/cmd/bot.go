@@ -83,7 +83,9 @@ func handleFutures(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Content == "!futures" || m.Content == "!market" {
 		timeStamp, _ := m.Timestamp.Parse()
 		if IsMarketClosed(timeStamp) {
-			s.ChannelMessageSend(m.ChannelID, "Futures are closed Wompie")
+			msg := "Futures are closed "
+			msg += m.Author.ID
+			s.ChannelMessageSend(m.ChannelID, msg)
 		}
 	}
 }
@@ -105,7 +107,7 @@ func IsMarketClosed(t time.Time) bool {
 		}
 	}
 	if t.Weekday().String() == "Sunday" {
-		if hour > 0 && hour <= 23 {
+		if hour > 0 && hour < 23 {
 			return true
 		}
 	}
