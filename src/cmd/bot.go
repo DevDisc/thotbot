@@ -88,6 +88,10 @@ func handleFutures(s *discordgo.Session, m *discordgo.MessageCreate) {
 			s.ChannelMessageSend(m.ChannelID, msg)
 		}
 	}
+	if m.Content == "!f" {
+          msg := "?quote /ES /NQ /RTY /VX /GC /SI"
+	  s.ChannelMessageSend(m.ChannelID, msg)
+	}
 }
 
 func IsMarketClosed(t time.Time) bool {
