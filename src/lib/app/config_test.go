@@ -1,18 +1,17 @@
 package app_test
 
 import (
-  "testing"
+	"testing"
 
-  "github.com/DevDisc/thotbot/lib/app"
-  "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewConfig(t *testing.T) {
-  cfg := NewConfig("test")
-  assert.Equal(t, "test", cfg.DiscordAuthToken)
+	cfg := NewConfig("test")
+	assert.Equal(t, "test", cfg.DiscordAuthToken)
 }
 
 func TestDefaultConfig(t *testing.T) {
-  cfg := DefaultConfig()
-  assert.Equal(t, "", cfg.DiscordAuthToken)
+	cfg := DefaultConfig()
+	assert.Equal(t, "", cfg.DiscordAuthToken)
 }

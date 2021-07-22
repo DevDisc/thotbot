@@ -2,22 +2,25 @@ package app
 
 // default
 var (
-  defaultAuthToken = ""
+	defaultAuthToken = ""
+	defaultPortPath  = "./"
 )
 
 // Config
 type Config struct {
-  DiscordAuthToken  string
+	DiscordAuthToken string
+	PortPath         string
 }
 
 // Create config
-func NewConfig(authToken string) *Config {
-  return &Config{
-    DiscordAuthToken: authToken,
-  }
+func NewConfig(authToken string, portPath string) *Config {
+	return &Config{
+		DiscordAuthToken: authToken,
+		PortPath:         portPath,
+	}
 }
 
 // Default
 func DefaultConfig() *Config {
-  return NewConfig(defaultAuthToken)
+	return NewConfig(defaultAuthToken, defaultPortPath)
 }
