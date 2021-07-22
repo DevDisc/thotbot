@@ -48,7 +48,7 @@ func (s *Server) Stop() error {
 
 // Handlers
 
-func (s *Server) HandlePort(m *discordgo.MessageCreate) {
+func (s *Server) HandlePort(sess *discordgo.Session, m *discordgo.MessageCreate) {
 	// Ignore bot messages
 	if m.Author.ID == s.router.State.User.ID {
 		return
@@ -86,7 +86,7 @@ func (s *Server) RunHelp(channelID string) {
 	s.router.ChannelMessageSendEmbed(channelID, &helpMessage)
 }
 
-func (s *Server) HandlePing(m *discordgo.MessageCreate) {
+func (s *Server) HandlePing(sess *discordgo.Session, m *discordgo.MessageCreate) {
 	// Ignore bot messages
 	if m.Author.ID == s.router.State.User.ID {
 		return
@@ -105,7 +105,7 @@ func (s *Server) HandlePing(m *discordgo.MessageCreate) {
 	}
 }
 
-func (s *Server) HandleFutures(m *discordgo.MessageCreate) {
+func (s *Server) HandleFutures(sess *discordgo.Session, m *discordgo.MessageCreate) {
 	// Ignore bot messages
 	if m.Author.ID == s.router.State.User.ID {
 		return
