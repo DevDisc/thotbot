@@ -30,6 +30,7 @@ func NewServer(cfg *Config) (*Server, error) {
 	// Add Handlers
 	server.router.AddHandler(server.HandlePing)
 	server.router.AddHandler(server.HandleFutures)
+	server.router.AddHandler(server.HandlePort)
 
 	// Only care about inputs
 	server.router.Identify.Intents = discordgo.MakeIntent(discordgo.IntentsGuildMessages)
