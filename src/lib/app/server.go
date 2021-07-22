@@ -63,6 +63,11 @@ func (s *Server) HandlePort(sess *discordgo.Session, m *discordgo.MessageCreate)
 	// Handle desired function
 	route := strings.Split(m.Content, " ")
 
+	// Need a command
+	if len(route) == 1 {
+		return
+	}
+
 	// Handle help and return
 	if route[1] == "help" {
 		s.RunHelp(m.ChannelID)
@@ -71,10 +76,34 @@ func (s *Server) HandlePort(sess *discordgo.Session, m *discordgo.MessageCreate)
 
 func (s *Server) RunHelp(channelID string) {
 	// Create help message fields
-	fields := make([]*discordgo.MessageEmbedField, 1)
+	fields := make([]*discordgo.MessageEmbedField, 6)
 	fields[0] = &discordgo.MessageEmbedField{
-		Name:  "!port help",
-		Value: "Use to show help function",
+		Name:   "!port help",
+		Value:  "Use to show help function",
+		Inline: true,
+	}
+	fields[1] = &discordgo.MessageEmbedField{
+		Name:   "!port show",
+		Value:  "Display your current port and daily change",
+		Inline: true,
+	}
+	fields[2] = &discordgo.MessageEmbedField{
+		Name:   "!port chart",
+		Value:  "Display 5 min chart for every symbol in your port",
+		Inline: true,
+	}
+	fields[3] = &discordgo.MessageEmbedField{
+		Name:   "!port quote",
+		Value:  "Display quotes for every symbol in your port",
+		Inline: true,
+	}
+	fields[4] = &discordgo.MessageEmbedField{
+		Name:  "!port add QUANTITY SYMBOL",
+		Value: "Add a quantity of stock to your port (!port add 10 AAPL)",
+	}
+	fields[5] = &discordgo.MessageEmbedField{
+		Name:  "!port remove QUANTITY SYMBOL",
+		Value: "Add a quantity of stock to your port (!port remove 10 AAPL). Will not go below 0",
 	}
 
 	// Create help message
