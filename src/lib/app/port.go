@@ -5,13 +5,8 @@ import (
 	"io/ioutil"
 )
 
-type Holding struct {
-	Amount int64  `json:"amount"`
-	Symbol string `json:"symbol`
-}
-
 type Port struct {
-	Holdings []Holding `json:"holdings"`
+	Holdings map[string]int `json:"holdings"`
 }
 
 func LoadPort(path string) (*Port, error) {

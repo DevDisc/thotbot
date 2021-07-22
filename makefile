@@ -35,5 +35,5 @@ clean:
 
 build: clean
 	@echo Building verion: $(VERSION), revision: $(REVISION)
-	@CGO_ENDABLED=0 GOOS=linux go build -a --installsuffix cgo \
+	@CGO_ENDABLED=0 go build -a --installsuffix cgo \
 		-o bin/$(SERVICE) $(APP)
