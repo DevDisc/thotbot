@@ -89,7 +89,12 @@ func handleFutures(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 	if m.Content == "!f" {
-          msg := "?quote /ES /NQ /RTY /VX /GC /SI"
+          msg := "?quote /ES /NQ /RTY /YM /GC /SI /CL"
+	  s.ChannelMessageSend(m.ChannelID, msg)
+	}
+
+	if m.Content == "!devport" {
+	  msg := "?c2 nio pltr open vldr coin"
 	  s.ChannelMessageSend(m.ChannelID, msg)
 	}
 }

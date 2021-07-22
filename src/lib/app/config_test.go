@@ -3,7 +3,7 @@ package app_test
 import (
   "testing"
 
-  . "github.com/DevDisc/thotbot/lib/app"
+  "github.com/DevDisc/thotbot/lib/app"
   "github.com/stretchr/testify/assert"
 )
 
