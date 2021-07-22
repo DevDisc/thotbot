@@ -328,11 +328,6 @@ func (s *Server) HandleFutures(sess *discordgo.Session, m *discordgo.MessageCrea
 		msg := "?quote /ES /NQ /RTY /YM /GC /SI /CL"
 		s.router.ChannelMessageSend(m.ChannelID, msg)
 	}
-
-	if m.Content == "!devport" {
-		msg := "?c2 nio pltr open vldr coin"
-		s.router.ChannelMessageSend(m.ChannelID, msg)
-	}
 }
 
 func IsMarketClosed(t time.Time) bool {
